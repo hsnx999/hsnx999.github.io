@@ -10,6 +10,7 @@ body {
 }
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
+a, button, .btn, .project-card, #stack .cloud span { -webkit-tap-highlight-color: transparent; }
 
 /* nav */
 nav {
@@ -111,9 +112,11 @@ section { padding: 80px 0; scroll-margin-top: 64px; }
   padding: 24px; display: flex; flex-direction: column;
   transition: transform .25s ease, border-color .25s ease, opacity .25s ease;
 }
-.project-card.visible:hover {
-  transform: translateY(-3px);
-  border-color: #333;
+@media (hover: hover) {
+  .project-card.visible:hover {
+    transform: translateY(-3px);
+    border-color: #333;
+  }
 }
 .project-card h3 {
   font-family: 'IBM Plex Mono', monospace;
@@ -153,8 +156,10 @@ section { padding: 80px 0; scroll-margin-top: 64px; }
   background: #141414; border: 1px solid #333; border-radius: 4px;
   color: #ccc; transition: border-color .2s, color .2s, opacity .2s, transform .2s;
 }
-#stack .cloud span:hover {
-  border-color: #7cfc8a; color: #7cfc8a;
+@media (hover: hover) {
+  #stack .cloud span:hover {
+    border-color: #7cfc8a; color: #7cfc8a;
+  }
 }
 
 /* contact */
@@ -224,16 +229,31 @@ footer {
   .section-heading { margin-bottom: 24px; }
   #contact h3 { font-size: 20px; }
   #contact .links a { font-size: 13px; word-break: break-all; }
+  footer { padding: 24px 0 32px; }
+  #back-to-top { bottom: 24px; right: 16px; width: 44px; height: 44px; font-size: 18px; }
 }
 @media (max-width: 380px) {
   nav { padding: 0 10px; height: 46px; }
   nav .links { gap: 6px; }
   nav .links a { font-size: 10px; }
   nav .logo { font-size: 11px; }
+  nav .links a, #contact .links a, .project-card .links a { padding: 8px 4px; }
   main { padding: 0 12px; }
+  section { padding: 40px 0; }
+  #hero { padding-top: 72px; }
   #hero h1 { font-size: 18px; }
   .project-card { padding: 14px; }
-  .btn { padding: 8px 16px; font-size: 12px; }
+  .btn { padding: 14px 20px; font-size: 12px; }
+  #contact h3 { font-size: 18px; }
+}
+@media (max-width: 340px) {
+  nav { padding: 0 8px; }
+  nav .links { gap: 4px; }
+  nav .links a { font-size: 9px; padding: 8px 2px; }
+  nav .logo { font-size: 10px; }
+  main { padding: 0 8px; }
+  #hero h1 { font-size: 16px; }
+  .btn { padding: 12px 14px; font-size: 11px; }
 }
 
 /* reduced motion */
