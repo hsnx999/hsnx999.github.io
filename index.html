@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hassan Muhammad Sharif — AI Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #0d0d0d;
+      color: #e8e8e8;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* nav */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 24px; height: 52px;
+      background: #0d0d0d;
+      border-bottom: 1px solid #222;
+    }
+    nav .logo {
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: 600; font-size: 16px;
+      color: #7cfc8a;
+    }
+    nav .links { display: flex; gap: 24px; }
+    nav .links a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px; color: #666;
+      transition: color .2s;
+    }
+    nav .links a:hover { color: #e8e8e8; }
+
+    /* main container */
+    main { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+    /* sections */
+    section { padding: 80px 0; }
+    .section-heading {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 14px; font-weight: 500;
+      color: #7cfc8a; text-transform: uppercase;
+      letter-spacing: 1.5px; margin-bottom: 32px;
+    }
+
+    /* hero */
+    #hero {
+      padding-top: 132px; padding-bottom: 72px;
+    }
+    #hero h1 {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 40px; font-weight: 600;
+      line-height: 1.2; margin-bottom: 12px;
+    }
+    #hero h1 .cursor {
+      display: inline-block; width: 2px; height: 0.85em;
+      background: #7cfc8a; margin-left: 4px;
+      vertical-align: text-bottom;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    #hero .subtitle {
+      font-size: 16px; color: #666;
+      margin-bottom: 32px; max-width: 540px;
+    }
+    #hero .ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 10px 22px; border-radius: 4px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px; font-weight: 500;
+      border: 1px solid transparent;
+      cursor: pointer; transition: background .2s, border-color .2s, opacity .2s;
+    }
+    .btn-primary {
+      background: #7cfc8a; color: #0d0d0d; border-color: #7cfc8a;
+    }
+    .btn-primary:hover { opacity: .85; }
+    .btn-outline {
+      background: transparent; color: #e8e8e8; border-color: #333;
+    }
+    .btn-outline:hover { border-color: #7cfc8a; color: #7cfc8a; }
+
+    /* about */
+    #about .grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+    }
+    #about .text p + p { margin-top: 16px; }
+    #about .text p { color: #ccc; }
+    #about .facts {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px; line-height: 2;
+    }
+    #about .facts .row { display: flex; }
+    #about .facts .key {
+      color: #7cfc8a; width: 80px; flex-shrink: 0;
+    }
+    #about .facts .val { color: #999; }
+
+    /* projects */
+    #projects .cards {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    }
+    .project-card {
+      background: #141414; border: 1px solid #222; border-radius: 6px;
+      padding: 24px; display: flex; flex-direction: column;
+      transition: transform .25s ease, border-color .25s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-3px);
+      border-color: #333;
+    }
+    .project-card h3 {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 15px; font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .project-card .tags {
+      display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px;
+    }
+    .project-card .tags span {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px; padding: 2px 8px;
+      border: 1px solid #333; border-radius: 3px;
+      color: #999;
+    }
+    .project-card p {
+      font-size: 14px; color: #888; line-height: 1.6;
+      margin-bottom: 16px; flex: 1;
+    }
+    .project-card .links {
+      display: flex; gap: 14px;
+    }
+    .project-card .links a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px; color: #7cfc8a;
+      transition: opacity .2s;
+    }
+    .project-card .links a:hover { opacity: .7; }
+
+    /* skills */
+    #stack .cloud {
+      display: flex; flex-wrap: wrap; gap: 10px;
+    }
+    #stack .cloud span {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px; padding: 6px 14px;
+      background: #141414; border: 1px solid #333; border-radius: 4px;
+      color: #ccc; transition: border-color .2s, color .2s;
+    }
+    #stack .cloud span:hover {
+      border-color: #7cfc8a; color: #7cfc8a;
+    }
+
+    /* contact */
+    #contact .inner {
+      padding: 0 0 32px;
+    }
+    #contact h2 {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 24px; font-weight: 600; margin-bottom: 20px;
+    }
+    #contact .links {
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    #contact .links a {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 14px; color: #7cfc8a;
+      transition: opacity .2s;
+    }
+    #contact .links a:hover { opacity: .7; }
+
+    footer {
+      padding: 32px 0 48px;
+      text-align: center;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px; color: #444;
+    }
+
+    /* scroll animations */
+    .fade-up {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity .4s ease, transform .4s ease;
+    }
+    .fade-up.visible {
+      opacity: 1; transform: translateY(0);
+    }
+    .project-card, .cloud span { opacity: 0; transform: translateY(20px); }
+    .project-card.visible, .cloud span.visible { opacity: 1; transform: translateY(0); }
+
+    /* responsive */
+    @media (max-width: 768px) {
+      nav .links a { font-size: 12px; }
+      #hero h1 { font-size: 28px; }
+      #hero .subtitle { font-size: 14px; }
+      #about .grid { grid-template-columns: 1fr; gap: 24px; }
+      #projects .cards { grid-template-columns: 1fr; }
+      section { padding: 56px 0; }
+    }
+    @media (max-width: 480px) {
+      nav { padding: 0 16px; }
+      nav .links { gap: 14px; }
+      #hero { padding-top: 100px; }
+      #hero h1 { font-size: 22px; }
+      main { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#hero" class="logo">Hassan Muhammad Sharif</a>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#stack">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="hero">
+      <h1 class="fade-up">Building things with AI.<span class="cursor"></span></h1>
+      <p class="subtitle fade-up">AI engineer. Autonomous agents, RAG systems, LLM tooling. Python.</p>
+      <div class="ctas fade-up">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="https://github.com/hsnx999" target="_blank" rel="noopener noreferrer" class="btn btn-outline">GitHub ↗</a>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2 class="section-heading fade-up">About</h2>
+      <div class="grid fade-up">
+        <div class="text">
+          <p>I build AI-powered systems end to end — from prompt engineering and RAG architecture to autonomous agents that reason across multiple steps. My focus is on production-quality Python projects: clean code, real evaluations, and tools that actually work.</p>
+        </div>
+        <div class="facts">
+          <div class="row"><span class="key">lang</span><span class="val">→ Python</span></div>
+          <div class="row"><span class="key">focus</span><span class="val">→ LLMs, Agents, RAG</span></div>
+          <div class="row"><span class="key">infra</span><span class="val">→ Groq, Streamlit, HuggingFace</span></div>
+          <div class="row"><span class="key">eval</span><span class="val">→ RAGAS, CI/CD</span></div>
+          <div class="row"><span class="key">github</span><span class="val">→ hsnx999</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-heading fade-up">Projects</h2>
+      <div class="cards">
+        <div class="project-card">
+          <h3>LLM Paper Digest</h3>
+          <div class="tags"><span>Python</span><span>LLMs</span><span>NLP</span></div>
+          <p>Automated pipeline that ingests AI/ML research papers and produces structured, digestible summaries — keeping up with the literature without reading every PDF.</p>
+          <div class="links"><a href="https://github.com/hsnx999/llm-paper-digest" target="_blank" rel="noopener noreferrer">GitHub →</a></div>
+        </div>
+        <div class="project-card">
+          <h3>Research Agent</h3>
+          <div class="tags"><span>Python</span><span>LangChain</span><span>LLaMA 3.3</span><span>Groq</span><span>ReAct</span></div>
+          <p>Autonomous AI agent that researches topics end-to-end: searches the web, scrapes pages, reasons across steps, and saves structured markdown reports — no human in the loop.</p>
+          <div class="links"><a href="https://github.com/hsnx999/research-agent" target="_blank" rel="noopener noreferrer">GitHub →</a></div>
+        </div>
+        <div class="project-card">
+          <h3>DocChat (RAG Chatbot)</h3>
+          <div class="tags"><span>Python</span><span>RAG</span><span>FAISS</span><span>Streamlit</span><span>RAGAS</span></div>
+          <p>Upload PDFs, DOCX, or text files and ask questions in plain English. Answers are grounded strictly in your documents — cross-encoder reranking, conversation memory, and automated RAGAS evals.</p>
+          <div class="links">
+            <a href="https://github.com/hsnx999/rag-chatbot" target="_blank" rel="noopener noreferrer">GitHub →</a>
+            <a href="https://hsnx999-rag-chatbot.streamlit.app" target="_blank" rel="noopener noreferrer">Live Demo ↗</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>Multi-Agent Analyst</h3>
+          <div class="tags"><span>Python</span><span>Multi-Agent</span><span>LangChain</span></div>
+          <p>A multi-agent system where specialized AI agents collaborate to break down complex analytical tasks — orchestrator, researcher, and synthesizer roles working in concert.</p>
+          <div class="links"><a href="https://github.com/hsnx999/multi-agent-analyst" target="_blank" rel="noopener noreferrer">GitHub →</a></div>
+        </div>
+        <div class="project-card">
+          <h3>Sentiment Pipeline</h3>
+          <div class="tags"><span>Python</span><span>NLP</span><span>HuggingFace</span></div>
+          <p>End-to-end NLP pipeline for sentiment analysis — data ingestion, preprocessing, fine-tuned transformer inference, and results export.</p>
+          <div class="links"><a href="https://github.com/hsnx999/sentiment-pipeline" target="_blank" rel="noopener noreferrer">GitHub →</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack">
+      <h2 class="section-heading fade-up">Stack</h2>
+      <div class="cloud fade-up">
+        <span>Python</span><span>LangChain</span><span>LLaMA 3</span><span>Groq</span><span>RAG</span>
+        <span>FAISS</span><span>HuggingFace</span><span>Streamlit</span><span>RAGAS</span>
+        <span>ReAct Agents</span><span>Multi-Agent Systems</span><span>Prompt Engineering</span>
+        <span>FastAPI</span><span>Git</span><span>CI/CD</span>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-heading fade-up">Contact</h2>
+      <div class="inner fade-up">
+        <h2>Let's connect.</h2>
+        <div class="links">
+          <a href="https://github.com/hsnx999" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+            github.com/hsnx999
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>Built by hsnx999 · 2026</footer>
+  </main>
+
+  <script>
+    (function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+      const cards = document.querySelectorAll('.project-card');
+      cards.forEach((card, i) => {
+        card.style.transitionDelay = (i * 0.08) + 's';
+        observer.observe(card);
+      });
+
+      const pills = document.querySelectorAll('.cloud span');
+      pills.forEach((pill, i) => {
+        pill.style.transitionDelay = (i * 0.03) + 's';
+        observer.observe(pill);
+      });
+    })();
+  </script>
+</body>
+</html>
