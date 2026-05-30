@@ -40,4 +40,19 @@
   }, { threshold: 0.3, rootMargin: '-' + navHeight + 'px 0px 0px 0px' });
 
   sections.forEach(s => navObserver.observe(s));
+
+  /* back to top */
+  const backBtn = document.querySelector('#back-to-top');
+  const hero = document.querySelector('#hero');
+  if (backBtn && hero) {
+    const heroObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        backBtn.classList.toggle('show', !entry.isIntersecting);
+      });
+    }, { threshold: 0 });
+    heroObserver.observe(hero);
+    backBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 })();
