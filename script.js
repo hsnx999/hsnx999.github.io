@@ -1,0 +1,40 @@
+(function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  const cards = document.querySelectorAll('.project-card');
+  cards.forEach((card, i) => {
+    card.style.transitionDelay = (i * 0.08) + 's';
+    observer.observe(card);
+  });
+
+  const pills = document.querySelectorAll('.cloud span');
+  pills.forEach((pill, i) => {
+    pill.style.transitionDelay = (i * 0.03) + 's';
+    observer.observe(pill);
+  });
+
+  /* active nav link */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav .links a');
+
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { threshold: 0.3, rootMargin: '-52px 0px 0px 0px' });
+
+  sections.forEach(s => navObserver.observe(s));
+})();
