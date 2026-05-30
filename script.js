@@ -1,4 +1,6 @@
 (function() {
+  'use strict';
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -26,6 +28,7 @@
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('nav .links a');
 
+  const navHeight = document.querySelector('nav').offsetHeight;
   const navObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -34,7 +37,7 @@
         });
       }
     });
-  }, { threshold: 0.3, rootMargin: '-52px 0px 0px 0px' });
+  }, { threshold: 0.3, rootMargin: '-' + navHeight + 'px 0px 0px 0px' });
 
   sections.forEach(s => navObserver.observe(s));
 })();

@@ -109,9 +109,9 @@ section { padding: 80px 0; scroll-margin-top: 64px; }
 .project-card {
   background: #141414; border: 1px solid #222; border-radius: 6px;
   padding: 24px; display: flex; flex-direction: column;
-  transition: transform .25s ease, border-color .25s ease;
+  transition: transform .25s ease, border-color .25s ease, opacity .25s ease;
 }
-.project-card:hover {
+.project-card.visible:hover {
   transform: translateY(-3px);
   border-color: #333;
 }
@@ -151,7 +151,7 @@ section { padding: 80px 0; scroll-margin-top: 64px; }
   font-family: 'IBM Plex Mono', monospace;
   font-size: 12px; padding: 6px 14px;
   background: #141414; border: 1px solid #333; border-radius: 4px;
-  color: #ccc; transition: border-color .2s, color .2s;
+  color: #ccc; transition: border-color .2s, color .2s, opacity .2s, transform .2s;
 }
 #stack .cloud span:hover {
   border-color: #7cfc8a; color: #7cfc8a;
@@ -161,7 +161,7 @@ section { padding: 80px 0; scroll-margin-top: 64px; }
 #contact .inner {
   padding: 0 0 32px;
 }
-#contact h2 {
+#contact h3 {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 24px; font-weight: 600; margin-bottom: 20px;
 }
@@ -180,7 +180,7 @@ footer {
   padding: 32px 0 48px;
   text-align: center;
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px; color: #444;
+  font-size: 12px; color: #777;
 }
 
 /* scroll animations */
@@ -222,7 +222,7 @@ footer {
   .project-card h3 { font-size: 14px; }
   .project-card p { font-size: 13px; }
   .section-heading { margin-bottom: 24px; }
-  #contact h2 { font-size: 20px; }
+  #contact h3 { font-size: 20px; }
   #contact .links a { font-size: 13px; word-break: break-all; }
 }
 @media (max-width: 380px) {
