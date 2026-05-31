@@ -32,7 +32,7 @@
   let navObserver;
   function createNavObserver() {
     if (navObserver) navObserver.disconnect();
-    var navHeight = navEl.offsetHeight;
+    const navHeight = navEl.offsetHeight;
     navObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -45,10 +45,10 @@
     sections.forEach(s => navObserver.observe(s));
   }
 
-  createNavObserver();
-
   if (navEl) {
-    var resizeObserver = new ResizeObserver(function() {
+    createNavObserver();
+
+    const resizeObserver = new ResizeObserver(function() {
       createNavObserver();
     });
     resizeObserver.observe(navEl);
@@ -62,7 +62,7 @@
       entries.forEach(entry => {
         backBtn.classList.toggle('show', !entry.isIntersecting);
       });
-    }, { threshold: 0 });
+    }, { threshold: [0, 0.1] });
     heroObserver.observe(hero);
     backBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });

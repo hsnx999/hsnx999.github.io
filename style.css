@@ -28,7 +28,7 @@ nav .logo {
 nav .links { display: flex; gap: 24px; }
 nav .links a {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 13px; color: #666;
+  font-size: 13px; color: #888;
   transition: color .2s;
 }
 nav .links a:hover { color: #e8e8e8; }
@@ -66,7 +66,7 @@ section { padding: 80px 0; scroll-margin-top: 64px; }
   50% { opacity: 0; }
 }
 #hero .subtitle {
-  font-size: 16px; color: #666;
+  font-size: 16px; color: #888;
   margin-bottom: 32px; max-width: 540px;
 }
 #hero .ctas { display: flex; gap: 12px; flex-wrap: wrap; }
